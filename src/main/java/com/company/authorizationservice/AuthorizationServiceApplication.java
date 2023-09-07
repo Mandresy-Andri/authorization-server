@@ -6,7 +6,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 
-//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @SpringBootApplication
 @EnableResourceServer
 public class AuthorizationServiceApplication {
