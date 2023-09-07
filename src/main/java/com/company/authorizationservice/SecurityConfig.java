@@ -32,10 +32,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usersByUsernameQuery(
                         "select email, password, enabled from users where email = ?")
                 .authoritiesByUsernameQuery(
-                        "select email, authority from authorities where email = ?")
+                        "select u.email, a.authority " +
+                                "from users u " +
+                                "inner join authorities a on u.user_id = a.user_id " +
+                                "where u.email = ?")
                 .passwordEncoder(encoder);
 
     }
+
+
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
