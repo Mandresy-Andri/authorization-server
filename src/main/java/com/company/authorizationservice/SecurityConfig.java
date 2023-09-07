@@ -30,12 +30,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         authBuilder.jdbcAuthentication()
                 .dataSource(dataSource)
                 .usersByUsernameQuery(
-                        "select email, password, enabled from users where email = ?")
+                        "select username, password, enabled from users where username = ?")
                 .authoritiesByUsernameQuery(
-                        "select email, authority from authorities where email = ?")
+                        "select u.username, a.authority " +
+                                "from users u " +
+                                "inner join authorities a on u.user_id = a.user_id " +
+                                "where u.username = ?")
                 .passwordEncoder(encoder);
 
     }
+
+
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

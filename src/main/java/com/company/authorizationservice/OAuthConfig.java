@@ -24,10 +24,11 @@ public class OAuthConfig  extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
         clients.inMemory()
-                .withClient("html5")
+                .withClient("client1")
                 .authorizedGrantTypes("password")
-                .scopes("ROLE_USER", "ROLE_MANAGER", "ROLE_ADMIN")
-                .secret("$2a$10$0Mf57EA3kipR1ej14v/tpeZ5UvV7kmcym57hfztwF79seJc.ulnHS");
+                .scopes("OWNER", "ADMIN", "STAFF")
+                .secret("$2a$10$BCP2vINskMkJe5TmjWNvc.L.S9/hZTh9lBnD09H6.Va16piNEM9wW")
+                .accessTokenValiditySeconds(5184000);//one month
     }
 
     @Override

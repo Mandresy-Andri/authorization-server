@@ -10,7 +10,7 @@ public class UserInfoController {
 
     @RequestMapping(value = "/userinfo", method = RequestMethod.GET)
     public Principal getUserInfo(Principal principal) {
-        System.out.println("CALLED userinfo");
+//        System.out.println("CALLED userinfo");
         return principal;
     }
 }
