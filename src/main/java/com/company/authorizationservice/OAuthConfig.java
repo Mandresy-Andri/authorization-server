@@ -27,7 +27,8 @@ public class OAuthConfig  extends AuthorizationServerConfigurerAdapter {
                 .withClient("html5")
                 .authorizedGrantTypes("password")
                 .scopes("ROLE_USER", "ROLE_MANAGER", "ROLE_ADMIN")
-                .secret("$2a$10$0Mf57EA3kipR1ej14v/tpeZ5UvV7kmcym57hfztwF79seJc.ulnHS");
+                .secret("$2a$10$0Mf57EA3kipR1ej14v/tpeZ5UvV7kmcym57hfztwF79seJc.ulnHS")
+                .accessTokenValiditySeconds(5184000);//one month before expiry;
     }
 
     @Override
